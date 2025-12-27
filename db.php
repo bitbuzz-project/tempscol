@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "reversement";
-$password = "ucvd6RD6e.n.Nml_"; // Update this with your actual password
+$username = "root";
+$password = ""; // Update this with your actual password
 $dbname = "peda";
 
 // Create connection
