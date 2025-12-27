@@ -17,31 +17,25 @@ $student = $_SESSION['student'];
 </head>
 <body>
 <div class="wrapper">
-    <!-- Modern Sidebar -->
+    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <button class="close-sidebar" id="closeSidebar">&times;</button>
         
-        <!-- Logo Section -->
-        <div class="text-center py-3 border-bottom border-white border-opacity-10">
-            <img src="images/logo.png" alt="Logo" class="img-fluid" style="max-width: 120px;" 
-                 onerror="this.style.display='none'">
+        <!-- Logo -->
+        <div class="sidebar-logo">
+            <img src="images/logo.png" alt="Logo" onerror="this.style.display='none'">
         </div>
         
-        <!-- User Profile Section -->
+        <!-- User Profile -->
         <div class="user-profile">
-            <img src="images/avatar-default.png" alt="Avatar" onerror="this.src='https://ui-avatars.com/api/?name=<?= urlencode($student['Prenom']) ?>&background=2c3e50&color=fff'">
+            <img src="https://ui-avatars.com/api/?name=<?= urlencode($student['Prenom']) ?>&background=0066ff&color=fff" alt="Avatar">
             <div class="user-name"><?= htmlspecialchars($student['Prenom']) ?> <?= htmlspecialchars($student['Nom']) ?></div>
-            <div class="user-code">Apogée: <?= htmlspecialchars($student['apoL_a01_code']) ?></div>
-            <?php if (isset($student['Filiere']) && !empty($student['Filiere'])): ?>
-                <div class="user-filiere">
-                    <small><i class="fas fa-graduation-cap me-1"></i><?= htmlspecialchars($student['Filiere']) ?></small>
-                </div>
-            <?php endif; ?>
+            <div class="user-code"><?= htmlspecialchars($student['apoL_a01_code']) ?></div>
         </div>
 
-        <!-- Navigation Sections -->
+        <!-- Navigation -->
         <nav class="nav-section">
-            <h6>Navigation Principale</h6>
+            <h6>Menu Principal</h6>
             <a href="dashboard.php" class="nav-link <?= ($current_page ?? '') === 'dashboard' ? 'active' : '' ?>">
                 <i class="fas fa-home"></i>
                 <span>Tableau de bord</span>
@@ -54,8 +48,6 @@ $student = $_SESSION['student'];
                 <i class="fas fa-book-open"></i>
                 <span>Situation Pédagogique</span>
             </a>
-
-            <h6>Outils ( Bientôt disponible )</h6>
            
             <a href="logout.php" class="nav-link logout">
                 <i class="fas fa-sign-out-alt"></i>
@@ -64,11 +56,11 @@ $student = $_SESSION['student'];
         </nav>
     </aside>
 
-    <!-- Main Content Area -->
-    <main class="content" id="mainContent">
+    <!-- Main Content -->
+    <main class="content">
         <!-- Mobile Header -->
-        <div class="mobile-header d-md-none">
-            <button class="btn btn-light" id="toggleSidebar">
+        <div class="mobile-header">
+            <button id="toggleSidebar">
                 <i class="fas fa-bars"></i>
             </button>
             <span><?= $page_title ?? 'Portail Étudiant' ?></span>
